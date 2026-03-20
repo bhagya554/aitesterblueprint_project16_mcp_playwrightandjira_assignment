@@ -1,0 +1,6 @@
+"Test Case ID","Test Case Name","Execution Steps","Expected Result"
+"TC-01","Valid User Login","Navigate to app.vwo.com > Enter valid email (contact@example.com) > Enter valid password > Click Submit","Dashboard loads successfully."
+"TC-02","Invalid Email Format","Navigate to app.vwo.com > Enter invalid email format (contactexample.com) > Enter password > Click Submit","Error message is displayed regarding invalid email."
+"TC-03","Invalid Login - Dummy Login","Navigate to app.vwo.com > Enter dummy email (dummy@dummy.com) > Enter dummy password > Click Submit","Error message is displayed regarding invalid credentials."
+"TC-04","Invalid Login - Arabic Characters","Navigate to app.vwo.com > Enter Arabic characters in email field (اختبار@موقع.كوم) > Enter password > Click Submit","Error message is displayed regarding invalid credentials."
+"TC-05","Invalid Login - Chinese Characters","Navigate to app.vwo.com > Enter Chinese characters in email field (测试@网站.公司) > Enter password > Click Submit","Error message is displayed regarding invalid credentials."

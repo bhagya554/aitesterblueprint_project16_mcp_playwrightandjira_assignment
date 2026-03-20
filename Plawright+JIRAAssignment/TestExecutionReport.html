@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Test Execution Report - VWO App Login</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f6fa; padding: 20px; }
+        .container { background-color: white; border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #2d3436; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-block: 20px; text-align: left; }
+        table th { background-color: #0984e3; color: white; padding: 12px; }
+        table td { border-bottom: 1px solid #dfe6e9; padding: 14px 10px; }
+        .badge { padding: 5px 10px; border-radius: 4px; font-weight: bold; color: white; font-size: 0.85em; }
+        .badge-pass { background-color: #00b894; }
+        .badge-fail { background-color: #d63031; }
+        pre, code { background-color: #ecf0f1; border-radius: 4px; padding: 10px; overflow-x: auto; color: #2d3436; }
+        .conversation { border-left: 4px solid #0984e3; padding-left: 15px; margin-block: 15px; background: #fafafa; }
+        img { display: block; max-width: 500px; height: auto; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        p { color: #555; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Automation Execution Report</h1>
+        <p><strong>Environment:</strong> Playwright MCP + JIRA MCP</p>
+        <p><strong>Application Under Test:</strong> https://app.vwo.com/</p>
+        
+        <h2>Test Case Execution Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>TC ID</th>
+                    <th>Test Case Name</th>
+                    <th>Execution Steps</th>
+                    <th>Expected Result</th>
+                    <th>Actual Result</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TC-01</td>
+                    <td>Valid User Login</td>
+                    <td>Nav to URL > valid contact@example.com > password > Submit</td>
+                    <td>Dashboard loads successfully</td>
+                    <td>Dashboard loaded successfully.</td>
+                    <td><span class="badge badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td>TC-02</td>
+                    <td>Invalid Email Format</td>
+                    <td>Nav to URL > invalid 'contactexample.com' > password > Submit</td>
+                    <td>Inline HTML5 pattern/form validation error regarding email format</td>
+                    <td>Allowed submission, displayed generic "email, password did not match" backend failure.</td>
+                    <td><span class="badge badge-fail">FAIL</span></td>
+                </tr>
+                <tr>
+                    <td>TC-03</td>
+                    <td>Invalid Login - Dummy Login</td>
+                    <td>Nav to URL > dummy dummy@dummy.com > password > Submit</td>
+                    <td>Invalid credentials error</td>
+                    <td>Proper credential mismatch error displayed.</td>
+                    <td><span class="badge badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td>TC-04</td>
+                    <td>Invalid Login - Arabic Characters</td>
+                    <td>Nav to URL > Arabic email اختبار@موقع.كوم > dummy > Submit</td>
+                    <td>Invalid credentials error</td>
+                    <td>Proper credential mismatch error displayed.</td>
+                    <td><span class="badge badge-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td>TC-05</td>
+                    <td>Invalid Login - Chinese Characters</td>
+                    <td>Nav to URL > Chinese email 测试@网站.公司 > dummy > Submit</td>
+                    <td>Invalid credentials error</td>
+                    <td>Proper credential mismatch error displayed.</td>
+                    <td><span class="badge badge-pass">PASS</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Failed Test Trace (TC-02)</h2>
+        <p>Attached Screenshot for Defect Logging Analysis:</p>
+        <img src="./tc02_failed_screenshot.png" alt="Failed Test Trace for TC-02" />
+        <p><strong>Logged Jira Bug: <a href="https://bhagyajira.atlassian.net//browse/KAN-13" target="_blank">KAN-13</a></strong></p>
+
+        <hr />
+        
+        <h2>Automation AI Conversation Context</h2>
+        <div class="conversation">
+            <p><strong>Prompt System Instructions:</strong></p>
+            <pre>
+R — Role: Lead QA Automation Engineer and AI Agent Expert with 15 years experience using Playwright MCP and JIRA MCP.
+I — Instructions:
+1. Create 5 test cases covering Arabic, Chinese, normal dummy login, invalid email formats.
+2. Export test cases.
+3. Execute step-by-step using Playwright MCP.
+4. Intentionally mark one as Fail to push to Jira.
+5. Capture a browser screenshot specifically for the failed test case.
+6. Create an HTML file report containing all necessary test details and execution trace.
+...
+            </pre>
+            <p><strong>Action Workflow:</strong> Received RICE POT parameters -> Formulated 5 QA scenarios -> Created `test_cases.csv` -> Launched Playwright via MCP server -> Selected TC-02 for intentional failure mode implementation -> Captured full-page trace screenshot upon verifying missing immediate format validation -> Submitted bug payload via Jira MCP -> Generated `TestExecutionReport.html` summary.</p>
+        </div>
+    </div>
+</body>
+</html>

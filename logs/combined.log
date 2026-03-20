@@ -1,0 +1,4 @@
+{"environment":"production","level":"info","message":"Initializing Atlassian MCP Server","service":"mcp-atlassian","timestamp":"2026-03-20 12:48:00","version":"2.1.0"}
+{"environment":"production","level":"info","message":"Registered 40 tools","service":"mcp-atlassian","timestamp":"2026-03-20 12:48:00","version":"2.0.0"}
+{"environment":"production","level":"info","message":"Atlassian MCP server started successfully","service":"mcp-atlassian","timestamp":"2026-03-20 12:48:00","toolsRegistered":40,"transport":"stdio","version":"2.1.0"}
+{"environment":"production","level":"info","message":"Received SIGINT - gracefully shutting down","service":"mcp-atlassian","timestamp":"2026-03-20 14:06:36","version":"2.0.0"}
